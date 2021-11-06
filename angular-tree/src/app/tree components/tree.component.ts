@@ -22,4 +22,29 @@ export class Tree {
             
         }
     }
+
+    /*
+    renameDFS(tree: Array<Node>, currentNumber: number) {
+      tree.forEach(node => {
+        if (node.data === 'root' && node.children.length !== 0) {
+          this.renameDFS(node.children, currentNumber)
+        } else {
+          node.data.replace(/[0-9]{3}/, currentNumber.toString());
+          if (node.children.length !== 0){
+            this.renameDFS(node.children, currentNumber + 1) 
+          }
+        }
+      });
+
+      //or use stack[].
+      //while (stack.length > 0){
+        check node
+        add all children to stack
+      }
+    }
+  
+    renameBFS(tree: Array<Node>, currentNumber: number){
+      //to do BFS
+    }
+    */
 }
