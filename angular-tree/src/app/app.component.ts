@@ -8,17 +8,22 @@ import { Node } from './tree components/node'
 })
 export class AppComponent {
   
-  nodeC = new Node ('c',[]);
-  nodeD = new Node ('d',[]);
-  nodeF = new Node ('f',[]);
-  nodeH = new Node ('h',[]);
-  nodeG = new Node ('g',[this.nodeH]);
+  tree: Array<Node> = [new Node('root', this.generateTree(8, 5))];
 
-  nodeE = new Node ('e',[this.nodeF,this.nodeG]);
-  nodeB = new Node ('b',[this.nodeE]);
-  nodeA = new Node ('a',[this.nodeC,this.nodeD]);
+  generateTree (depth: number, maxWidth: number): Array<Node> {
+    if (depth === 0 ) {
+      return [];
+    }
 
-  tree = [new Node('root', [this.nodeA,this.nodeB])];
+    let result: Array<Node> = [];
+
+    for (let i = 0; i < Math.floor(Math.random() * maxWidth + 1); i++){
+      let node = new Node ('Node ' + Math.floor(Math.random() * 999  + 1), this.generateTree(depth - 1 , maxWidth));
+      result.push(node);
+    }
+
+    return result;
+  }
 }
 
 
