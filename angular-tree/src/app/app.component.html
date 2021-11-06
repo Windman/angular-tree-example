@@ -1,4 +1,9 @@
 <div>
     <h2>Tree view example</h2>
-    <tree-node [tree]="tree"></tree-node>
+    <div>
+      <input type="button" (click)=onRenameDFS() value="Rename with DFS">
+      <input type="button" (click)=onRenameBFS() value="Rename with BFS">
+    </div>
+    <hr>
+    <tree></tree>
   </div>
