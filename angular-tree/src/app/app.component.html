@@ -5,5 +5,16 @@
       <input type="button" (click)=onRenameBFS() value="Rename with BFS">
     </div>
     <hr>
-    <tree></tree>
-  </div>
+    <div>
+      <ul>
+        <li *ngFor="let node of tree">
+          {{node.data}}
+          <input type="button" (click)=node.expand() value="Toggle">
+          <div *ngIf="node.expanded">
+            <tree  [tree]="node.children"></tree>
+          </div>
+        </li>
+    </ul>
+    </div>
+    
+</div>
