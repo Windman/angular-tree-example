@@ -6,15 +6,6 @@
     </div>
     <hr>
     <div>
-      <ul>
-        <li *ngFor="let node of tree">
-          {{node.data}}
-          <input type="button" (click)=node.expand() value="Toggle">
-          <div *ngIf="node.expanded">
-            <tree  [tree]="node.children"></tree>
-          </div>
-        </li>
-    </ul>
+      <tree [tree]="tree"></tree>
     </div>
-    
 </div>
