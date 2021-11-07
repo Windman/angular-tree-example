@@ -9,20 +9,21 @@ import { TreeGenerator } from './tree-generator';
 })
 
 export class Tree {
-    treeGenerator: TreeGenerator = new TreeGenerator();
+    //treeGenerator: TreeGenerator = new TreeGenerator();
 
-    @Input() tree: Array<TreeNode> = [new TreeNode('root', this.treeGenerator.generateTree(8, 5))];
+    @Input() tree: Array<TreeNode>;// = [new TreeNode('root', this.treeGenerator.generateTree(10, 8))];
 
-    @HostListener('document:keydown',['$event']) handleKeyboardEvent(event: KeyboardEvent) {
+    /*@HostListener('mouseenter') onMouseClick(event: Event) {
         console.log(event);
-        if (event.key === "Insert"){
-            //generate and add a new node here
-            let newNode = new TreeNode('added',[]);
-            //not sure how to get the current node
-            
-        }
+    }*/
+
+    /*@Input() treeRenameDFS(){
+        console.log('Renamed with DFS');
     }
 
+    @Input() treeRenameBFS(){
+        console.log('Renamed with BFS');
+    }
     /*
     renameDFS(tree: Array<Node>, currentNumber: number) {
       tree.forEach(node => {
