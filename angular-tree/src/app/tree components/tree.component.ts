@@ -3,12 +3,12 @@ import { TreeNode } from './tree-node'
 import { TreeGenerator } from './tree-generator';
 
 @Component({
-    selector: 'tree',
-    templateUrl: './tree.template.html',
-    styleUrls: ['./tree.styles.css']
+    selector: 'app-tree',
+    templateUrl: './tree.component.html',
+    styleUrls: ['./tree.component.css']
 })
 
-export class Tree {
+export class TreeComponent {
     //treeGenerator: TreeGenerator = new TreeGenerator();
 
     @Input() tree: Array<TreeNode>;// = [new TreeNode('root', this.treeGenerator.generateTree(10, 8))];
