@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { TreeGenerator } from './tree components/tree-generator';
 import { TreeNode } from './tree components/tree-node';
 
@@ -12,28 +12,33 @@ export class AppComponent {
 
   @Input() tree: Array<TreeNode> = [new TreeNode('root', this.treeGenerator.generateTree(10, 8))];
 
-  /*@Input() RenamedDFS = new EventEmitter();
-  @Input() RenamedBFS = new EventEmitter();
-  */
-  onRenameDFS() {
-    console.log("DFS");
-    /*let queue: Array<TreeNode> = [this.tree[0]];
-    let adj: Array<TreeNode> = [...this.tree[0].children];
-
-    while (adj.length >0){
-      for(let i = 0; i < adj.length; i++ ){
-        queue.push(adj[i]);
-      }
-    }
-    let currentNumber = 1;
-
-    while (){
-      queue.forEach(node => )
-    }*/
-  }
-  
   onRenameBFS() {
     console.log("BFS");
+
+    let unvisited: Array<TreeNode> = [];
+    let currentNodeNumber: number = 1;
+    let nextToVisit: Array<TreeNode> = [];
+
+    this.tree.forEach(node => nextToVisit.push(node));
+    
+    while(nextToVisit.length > 0){
+      for (let i = 0; i < nextToVisit.length; i++){
+        nextToVisit[i].data = 'Node ' + currentNodeNumber.toString();
+        currentNodeNumber++;
+        if (nextToVisit[i].children.length > 0){
+          nextToVisit[i].children.forEach(elem => unvisited.push(elem));
+        }
+      }
+      
+      nextToVisit = [];
+      unvisited.forEach(node => nextToVisit.push(node));
+      unvisited = [];
+    }
+    console.log(this.tree);
+  }
+  
+  onRenameDFS() {
+    console.log("DFS");
   }
 }
 
