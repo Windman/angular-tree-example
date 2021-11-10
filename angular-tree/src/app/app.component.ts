@@ -13,7 +13,6 @@ export class AppComponent {
   @Input() tree: Array<TreeNode> = [new TreeNode('root', this.treeGenerator.generateTree(10, 8))];
 
   onRenameBFS() {
-    console.log("BFS");
 
     let unvisited: Array<TreeNode> = [];
     let currentNodeNumber: number = 1;
@@ -34,7 +33,6 @@ export class AppComponent {
       unvisited.forEach(node => nextToVisit.push(node));
       unvisited = [];
     }
-    console.log(this.tree);
   }
   
   onRenameDFS() {
