@@ -37,7 +37,22 @@ export class AppComponent {
   
   onRenameDFS() {
     console.log("DFS");
+
+    let unvisited: Array<TreeNode> = [];
+    let currentNodeNumber: number = 1;
+    this.tree.forEach(node => unvisited.push(node));
+
+    while (unvisited.length > 0){
+      let currentNode: TreeNode = unvisited.pop();
+      currentNode.data = 'Node ' + currentNodeNumber.toString();
+      currentNodeNumber++;
+      
+      if (currentNode.children.length > 0){
+        for (let i = currentNode.children.length -1 ; i >= 0; i--){
+          unvisited.push(currentNode.children[i]);
+        }
+      }
+      
+    }
   }
 }
-
-
